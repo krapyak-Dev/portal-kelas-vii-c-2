@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10182b">
+  <title>Portal Kelas VIIC</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main id="loginView" class="login-shell">
+    <section class="login-card">
+      <div class="brand-mark">VII C</div>
+      <div class="eyebrow">PORTAL KELAS</div>
+      <h1>Selamat datang</h1>
+      <p class="muted">Masuk menggunakan akun yang diberikan admin.</p>
+      <form id="loginForm">
+        <label>Email<input id="email" type="email" autocomplete="username" required placeholder="nama@email.com"></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" required placeholder="Password"></label>
+        <button class="primary full" type="submit">Masuk</button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+      <p class="tiny muted">Akun dibuat oleh admin. Pendaftaran umum tidak tersedia.</p>
+    </section>
+  </main>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand-row"><div class="brand-mark small">VII C</div><div><b>Portal Kelas</b><small>VIIC</small></div></div>
+      <nav>
+        <button class="nav-link active" data-page="overview">▦ <span>Ringkasan</span></button>
+        <button class="nav-link" data-page="announcements">▤ <span>Pengumuman</span></button>
+        <button class="nav-link" data-page="attendance">✓ <span>Presensi</span></button>
+        <button class="nav-link" data-page="duties">♧ <span>Jadwal piket</span></button>
+        <button class="nav-link" data-page="cash">Rp <span>Uang kas</span></button>
+        <button class="nav-link" data-page="notifications">♧ <span>Notifikasi <i id="notificationCount" class="count hidden">0</i></span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-mini"><div class="avatar" id="userInitial">U</div><div><b id="userName">Pengguna</b><small id="userRole">Siswa</small></div></div>
+        <button id="logoutBtn" class="nav-link logout">↪ <span>Keluar</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div><div class="eyebrow">PORTAL KELAS VIIC</div><h1 id="pageTitle">Ringkasan</h1></div><button id="refreshBtn" class="icon-button" title="Muat ulang">↻</button></header>
+      <div id="toast" class="toast hidden"></div>
+      <section id="pageContent"></section>
+      <footer>Portal Kelas VIIC <span>•</span> Informasi internal kelas</footer>
+    </main>
+  </div>
+</body>
+</html>
